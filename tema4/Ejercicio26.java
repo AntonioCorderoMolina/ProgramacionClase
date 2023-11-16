@@ -1,3 +1,5 @@
+package tema4;
+
 import java.util.Scanner;
 
 public class Ejercicio26 {
@@ -47,6 +49,6 @@ public class Ejercicio26 {
         }
 
 
-
+entrada.close();
      }
 }

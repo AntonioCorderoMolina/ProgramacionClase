@@ -1,3 +1,5 @@
+package tema4;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -56,7 +58,7 @@ public class Ejercicio16 {
             System.out.println("Se esperaba un valor de tipo numérico entero. Se ha introducido una cadena.");
 
         }
-
+        entrada.close();
     }
     
 }

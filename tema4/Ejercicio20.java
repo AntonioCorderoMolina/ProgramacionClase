@@ -1,3 +1,5 @@
+package tema4;
+
 import java.util.Scanner;
 
 public class Ejercicio20 {
@@ -62,5 +64,6 @@ public class Ejercicio20 {
 
         System.out.printf("Faltan %d minutos para llegar al fin de semana.\n", total);
 
+        entrada.close();
     }
 }

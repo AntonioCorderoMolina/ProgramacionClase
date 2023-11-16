@@ -1,3 +1,5 @@
+package tema4;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -44,7 +46,7 @@ public class Ejercicio18 {
         } finally {
             entrada.close() ;
         }
-
+entrada.close();
     }
     
 }

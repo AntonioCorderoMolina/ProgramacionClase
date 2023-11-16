@@ -1,3 +1,5 @@
+package tema4;
+
 import java.util.Scanner;
 
 public class Ejercicio15 {
@@ -11,7 +13,7 @@ public class Ejercicio15 {
     public static void main(String[] args) {
 
         int numero ;
-        int digito ;  
+        ///int digito ;  
         String respuesta ;      
         Scanner entrada = new Scanner(System.in) ;
 
@@ -37,6 +39,6 @@ public class Ejercicio15 {
         //System.out.printf("El último dígito del número introducido es %d\n", digito);
 
 
-
+        entrada.close();
     }
 }
