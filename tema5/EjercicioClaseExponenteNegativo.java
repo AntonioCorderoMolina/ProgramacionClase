@@ -16,6 +16,7 @@ public class EjercicioClaseExponenteNegativo {
         int i;
 
         Scanner sc = new Scanner(System.in);
+        sc.close();
 
         System.out.print("\n Introduce un número entero positivo: ");
         numero = sc.nextInt();
