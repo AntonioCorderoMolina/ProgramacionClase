@@ -8,23 +8,27 @@ public class Ejemplo2Clase {
      */
     public static void main(String[] args) {
         
+        int i;
+
         int[] numeros = new int[10];
-        Scanner sc = new Scanner(System.in);
+        
+        try (Scanner sc = new Scanner(System.in)) {
 
-        System.out.println("\nPor favor, introduzca 10 números enteros.");
-        System.out.println("Pulse la tecla INTRO después de introducir cada número.");
+            System.out.println("\nPor favor, introduzca 10 números enteros.");
+            System.out.println("Pulse la tecla INTRO después de introducir cada número.");
 
-        for (int i = 0; i < 10; i++) {
-            numeros[i] = sc.nextInt();
+            for (i = 0; i < 10; i++) {
+                numeros[i] = sc.nextInt();
+            }
+
+            System.out.println("Los números introducidos, al revés, son los siguientes:");
+
+            // Mostrar los números en orden inverso
+            for (i = 9; i >= 0; i--) {
+                System.out.print(numeros[i] + " ");
+            }
+
+            sc.close();
         }
-
-        System.out.println("Los números introducidos, al revés, son los siguientes:");
-
-        // Mostrar los números en orden inverso
-        for (int i = 9; i >= 0; i--) {
-            System.out.print(numeros[i] + " ");
-        }
-
-        sc.close();
     }
 }
