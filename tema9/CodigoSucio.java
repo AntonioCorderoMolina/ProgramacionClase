@@ -1,5 +1,6 @@
 package tema9;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -11,12 +12,13 @@ import java.util.Scanner;
 public class CodigoSucio {
     public static void main(String[] args) {
 
-        String t;
+        String caracterCirculo;
 
-        int m;
-        int x;
-        char j;
-        int a;
+        int opcion;
+        int num;
+
+        char caracterRombo;
+        int altura;
 
         Scanner s = new Scanner(System.in);
 
@@ -28,9 +30,9 @@ public class CodigoSucio {
                 System.out.println("1. Opción 1");
                 System.out.println("2. Opción 2");
                 System.out.println("0. Salir");
-                m = s.nextInt();
+                opcion = s.nextInt();
 
-                switch (m) {
+                switch (opcion) {
 
                     case 0:
                         break;
@@ -38,29 +40,33 @@ public class CodigoSucio {
                     case 1:
 
                         do {
+                            s.nextLine();
                             System.out.print("Escribe un símbolo: ");
-                            t = s.next();
+                            caracterCirculo = s.nextLine();
                             System.out.print("Introduce un valor entero positivo:");
-                            x = s.nextInt();
+                            num = s.nextInt();
 
-                            if (x < 0) {
+                            if (num < 0) {
                                 System.out.println("El valor debe ser un número igual o mayor a cero.");
                             }
-                        } while (x > 0);
 
-                        f1(x, t.charAt(0));
+                        } while (num < 0);
+                            
+                        pintarCirculo(num, caracterCirculo);
+                    
                     break;
 
                     case 2:
+
                         System.out.print("Escribe un símbolo: ");
-                        t = s.next();
+                        caracterCirculo = s.next();
                         System.out.println("Introduce un valor positivo e impar:");
-                        j = t.charAt(0);
+                        caracterRombo = caracterCirculo.charAt(0);
 
-                        a = s.nextInt();
+                        altura = s.nextInt();
 
-                        if ((a > 0) && ((a % 2) != 0)) {
-                            pintarRombo(a, j);
+                        if ((altura > 0) && ((altura % 2) != 0)) {
+                            pintarRombo(altura, caracterRombo);
                         } else {
                             System.out.println("El valor debe ser positivo e impar.");
                         }
@@ -71,24 +77,29 @@ public class CodigoSucio {
                         System.out.println("Opción no válida");
                 }
 
-            } while (m != 0);
+            } while (opcion != 0);
 
-        } catch (Exception e) {
+        } catch (InputMismatchException ime) {
             System.out.println("**Se ha producido un error en la inserción de datos.");
         } finally {
             s.close();
         }
     }
 
-    private static void f1(int r, char x) {
+    /**
+     * Función para pintar un círculo.
+     * @param radio
+     * @param x
+     */
+    private static void pintarCirculo(int radio, String num) {
 
-        int i;
+        int cont;
         int j;
 
-        for (i = -r; i <= r; i++) {
-            for (j = -r; j <= r; j++) {
-                if ((((i * i) + (j * j)) <= (r * r)) && (((i * i) + (j * j)) > ((r - 2) * (r - 1)))) {
-                    System.out.print(x + " ");
+        for (cont = -radio ; cont <= radio ; cont++) {
+            for (j = -radio ; j <= radio ; j++) {
+                if ((((cont * cont) + (j * j)) <= (radio * radio)) && (((cont * cont) + (j * j)) > ((radio - 2) * (radio - 1)))) {
+                    System.out.printf("%s ", num);
                 } else {
                     System.out.print("  ");
                 }
@@ -98,25 +109,30 @@ public class CodigoSucio {
         }
     }
 
-    private static void pintarRombo(int a, char w) {
+    /**
+     * Función para pintar un rombo.
+     * @param altura
+     * @param w
+     */
+    private static void pintarRombo(int altura, char w) {
 
-        int e;
-        int i;
-        int j;
+        int anchoRombo;
+        int cont;
+        int caracterRombo;
 
-        e = a / 2;
+        anchoRombo = altura / 2;
 
-        for (i = 0; i < a; i++) {
-            for (j = 0; j < a; j++) {
+        for (cont = 0; cont < altura; cont++) {
+            for (caracterRombo = 0; caracterRombo < altura; caracterRombo++) {
 
-                if (i < a / 2) {
-                    if ((j == e) || (j == (a - e - 1))) {
+                if (cont < altura / 2) {
+                    if ((caracterRombo == anchoRombo) || (caracterRombo == (altura - anchoRombo - 1))) {
                         System.out.print(w);
                     } else {
                         System.out.print(" ");
                     }
                 } else {
-                    if ((j == e) || (j == a - e - 1)) {
+                    if ((caracterRombo == anchoRombo) || (caracterRombo == (altura - anchoRombo - 1))) {
                         System.out.print(w);
                     } else {
                         System.out.print(" ");
@@ -124,10 +140,10 @@ public class CodigoSucio {
                 }
             }
 
-            if (i < a / 2) {
-                e--;
+            if (cont < (altura / 2)) {
+                anchoRombo--;
             } else {
-                e++;
+                anchoRombo++;
             }
 
             System.out.println();
